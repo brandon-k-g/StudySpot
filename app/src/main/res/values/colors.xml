@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background_blue">#3A77E0</color>
+    <color name="login_button_blue">#356AC3</color>
+    <color name="input_background_white_alpha">#4DFFFFFF</color>
+    <color name="text_white_secondary_alpha">#B3FFFFFF</color>
+
+        <color name="purple_200">#FFBB86FC</color>
+        <color name="purple_500">#FF6200EE</color>
+        <color name="purple_700">#FF3700B3</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+        <color name="my_fab_primary_color">#3A76DE</color>
+        <color name="my_fab_icon_color">#FFFFFFFF</color>
+        <color name="my_fab_ripple_color">#B2DFDB</color>
+</resources>

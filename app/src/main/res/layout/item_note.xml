@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="?android:attr/selectableItemBackground"> <TextView
+    android:id="@+id/textViewNoteText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?attr/textAppearanceListItem"
+    android:textSize="16sp"
+    tools:text="This is a sample study note."
+    xmlns:tools="http://schemas.android.com/tools" />
+
+    <TextView
+        android:id="@+id/textViewNoteTimestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItemSecondary"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"
+        tools:text="May 18, 2025"
+        xmlns:tools="http://schemas.android.com/tools" />
+
+</LinearLayout>

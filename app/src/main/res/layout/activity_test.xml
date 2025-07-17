@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/testActivityLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    tools:context=".TestActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarTest"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        tools:title="Maths Test"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/progressSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textViewCardProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Card 15 of 20"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:layout_gravity="center_horizontal"/>
+
+        <ProgressBar
+            android:id="@+id/progressBarTest"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:max="100"
+            tools:progress="75"
+            android:progressTint="?attr/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:id="@+id/iconCorrect"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_check_green"
+                app:tint="@null"
+                android:contentDescription="Correct answers"/>
+            <TextView
+                android:id="@+id/textViewCorrectCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="8"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:id="@+id/iconIncorrect"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_left_red"
+                app:tint="@null"
+                android:contentDescription="Incorrect answers"/>
+            <TextView
+                android:id="@+id/textViewIncorrectCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="4"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewSwipeLeftIndicator"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_arrow_left_red"
+        app:tint="@null"
+        android:alpha="0.6"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flashcardContainer"
+        app:layout_constraintBottom_toBottomOf="@id/flashcardContainer"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Swipe left for wrong"/>
+
+    <FrameLayout
+        android:id="@+id/flashcardContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/progressSection"
+        app:layout_constraintBottom_toBottomOf="parent" android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="?attr/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="16dp">
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/textViewCardTopic"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:chipBackgroundColor="?attr/colorPrimaryVariant"
+                    tools:text="Algebra"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"/>
+                <TextView
+                    android:id="@+id/textViewCardQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="@android:color/white"
+                    android:layout_weight="1"
+                    tools:text="Solve for x: 2x²+4x-6=0"/>
+                <TextView
+                    android:id="@+id/textViewTapToFlip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/swipe_up_to_reveal"
+                    android:textColor="@android:color/white"
+                    android:alpha="0.7"
+                    android:layout_marginBottom="16dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="16dp"
+            android:visibility="gone"
+            android:rotationY="180"
+            app:cardBackgroundColor="?attr/colorSecondary">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="16dp">
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/textViewCardAnswerTopic"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="?attr/colorOnSecondary"
+                    app:chipBackgroundColor="?attr/colorSecondaryVariant"
+                    tools:text="Algebra"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"/>
+                <TextView
+                    android:id="@+id/textViewCardAnswer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="@android:color/white"
+                    android:layout_weight="1"
+                    tools:text="x = -3 or x = 1"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageViewSwipeRightIndicator"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_arrow_right_green"
+        app:tint="@null"
+        android:alpha="0.6"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flashcardContainer"
+        app:layout_constraintBottom_toBottomOf="@id/flashcardContainer"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Swipe right for correct"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
